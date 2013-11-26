@@ -12,8 +12,13 @@ The following things will be installed
 ## HOW TO INSTALL
 
 install [VirtualBox](https://www.virtualbox.org/)
+
+
 install [vagrant](http://www.vagrantup.com/)
+
+
 install rbenv & ruby
+
 
 - [rbenv](https://github.com/sstephenson/rbenv)
 - [ruby-build](https://github.com/sstephenson/ruby-build)
