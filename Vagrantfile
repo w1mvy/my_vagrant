@@ -10,11 +10,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "ubuntu"
+  config.vm.box = "ubuntu12.04"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "http://files.vagrantup.com/lucid64.box"
+  config.vm.box_url = 'http://files.vagrantup.com/precise64.box'
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -24,6 +24,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   config.vm.network :private_network, ip: "192.168.33.10"
+
+  config.omnibus.chef_version = :latest
+  config.berkshelf.enabled = true
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -85,6 +88,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.run_list = [
       'apt',
       'sudo',
+      'vim',
+      'zsh',
+      'tmux',
+      'git',
+      'ruby_build',
+      'rbenv::user',
       'mysql::client',
       'mysql::server',
       'nginx'
@@ -117,14 +126,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           {
             user: 'vagrant',
             rubies: ['2.0.0-p247'],
-            global: '2.0.0.-p247',
+            global: '2.0.0-p247',
             gems: {
-              2.0.0-p247: {
+              '2.0.0-p247' => [
                 {
                   name: 'bundler',
-                  version: '1.3.5'
                 }
-              }
+              ]
             }
           }
         ]

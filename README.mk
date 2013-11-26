@@ -3,11 +3,15 @@
 The following things will be installed
 - mysql
 - nginx
+- git
+- zsh
+- vim
+- tmux
 - rbenv
-- ruby
 
 ## HOW TO INSTALL
 
+install [VirtualBox](https://www.virtualbox.org/)
 install [vagrant](http://www.vagrantup.com/)
 install rbenv & ruby
 
